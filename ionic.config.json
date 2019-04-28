@@ -1,6 +1,8 @@
 {
   "name": "dulceria-1.1",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular",
   "id": "0f2da60e"
 }
