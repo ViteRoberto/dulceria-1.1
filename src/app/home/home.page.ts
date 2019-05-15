@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Pinata, CrudService } from '../service/crud.service';
 
 import { PickerController } from '@ionic/angular';
-// import { SearchBar } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +10,8 @@ import { PickerController } from '@ionic/angular';
 })
 export class HomePage implements OnInit{
   
-  pinatas: Pinata[];
+  pinatas: Pinata[] = [];
+  textoBuscar = '';
 
   sliderConfig = {
     spaceBetween: 10,
@@ -20,6 +20,12 @@ export class HomePage implements OnInit{
   }
 
   constructor(private crud: CrudService, private pickerCtrl: PickerController){}
+
+  buscarPinata(event){
+    const texto = event.target.value;
+    this.textoBuscar = texto;
+    console.log(texto);
+  }
 
   async seleccionarCategorias(){
     const picker = await this.pickerCtrl.create({

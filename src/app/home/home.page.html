@@ -15,7 +15,7 @@
       <ion-col size="8">
         <ion-row>
           <ion-col>
-            <ion-searchbar></ion-searchbar>
+            <ion-searchbar placeholder="Busca piñatas..." animated (ionChange)="buscarPinata($event)"></ion-searchbar>
           </ion-col>
         </ion-row>
         <ion-row>
@@ -27,7 +27,7 @@
     </ion-row>
   </ion-grid>
   <ion-slides [options]="sliderConfig">
-    <ion-slide *ngFor="let pinata of pinatas">
+    <ion-slide *ngFor="let pinata of pinatas | filtro:textoBuscar">
       <ion-card color="light">
         <ion-card-header>
           <ion-card-title>
